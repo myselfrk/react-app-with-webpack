@@ -33,6 +33,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(s(a|c)ss|css)$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
