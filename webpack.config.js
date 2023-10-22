@@ -18,16 +18,27 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env","@babel/preset-react"],
+            presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.(svg|png|jpg|gif|mp3|aac|ogg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "assets/",
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      inject:"body"
+      inject: "body",
     }),
   ],
 };
