@@ -6,9 +6,13 @@ const getEnvironmentVariables = require("./getEnvironmentVariables");
 const env = getEnvironmentVariables();
 
 module.exports = {
+  mode: "development",
+  stats: "errors-only",
+  devtool: "inline-source-map",
   entry: "./src/index.js",
   output: {
     filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js",
     path: path.resolve(__dirname, "build"),
     environment: {
       arrowFunction: false, // https://github.com/babel/babel-loader#top-level-function-iife-is-still-arrow-on-webpack-5
