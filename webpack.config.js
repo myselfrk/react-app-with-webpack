@@ -1,5 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { DefinePlugin } = require("webpack");
+const getEnvironmentVariables = require("./getEnvironmentVariables");
+
+const env = getEnvironmentVariables();
 
 module.exports = {
   entry: "./src/index.js",
@@ -44,5 +48,6 @@ module.exports = {
       template: "./public/index.html",
       inject: "body",
     }),
+    new DefinePlugin(env.stringified),
   ],
 };
